@@ -18,35 +18,36 @@ $(document).ready(function () {
                 myData.pDescShort = pValue.description_short;
                 myData.pFloor = pValue.floor;
                 myData.pRoom = pValue.room;
-
-                // TODO: location data obj
-                // $.each(pValue.location, function (lKey, lValue) {
-                //     // console.log("Key: " + lKey + " | Value: " + lValue);
-                // })
             });
 
             // Display
             $("#openDayData").append(
+                // "<li>" +
                 "<div class='row'>" +
                     "<h2>" + myData.tName + "</h2>" +
                     "<img src='" + myData.tCoverImage + "'" + "/>" +
 
-                    "<h3>" + myData.pTitle + "</h3>" +
+                    "<h3 class=\"title\">" + myData.pTitle + "</h3>" +
                     "<img src='" + myData.pCoverImage + "' class='img-fluid'" + "/>" +
 
                     "<p class='lead'>" + myData.pDesc + "</p>" +
                     "<p><em>" + myData.pDescShort + "</em></p>" +
                     "<p><strong><mark>" + myData.pFloor + " " + myData.pRoom + "</mark></strong></p>" +
-                "</div>"
+                "</div>" 
+                // + "</li>"
             )
         });
     });
 
-    // Rudimentary filter
-    $("#userInput").on("keyup", function() {
+     // Rudimentary filter
+     $("#userInput").on("keyup", function() {
         let value = $(this).val().toLowerCase();
             $("#openDayData *").filter(function() {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
     });
+
+    
 });
+
+
